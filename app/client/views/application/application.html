@@ -51,10 +51,10 @@
             name="year"
             ng-model="user.profile.graduationYear">
             <option value="">Graduation Year</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
           </select>
         </div>
 
@@ -72,37 +72,54 @@
         </div>
 
         <div class="field">
-          <label>I would describe myself as a...</label>
+          <label>Race/Ethnicity</label>
+          <select
+            name="race"
+            ng-model="user.profile.race">
+            <option value="W">White or Euro-American</option>
+            <option value="B">Black, Afro-Carribean, African American</option>
+            <option value="A">Asian or Asian American</option>
+            <option value="NA">Native American or Alaska Native</option>
+            <option value="L">Latinx or Hispanic American</option>
+            <option value="M">Middle Eastern or North African</option>
+            <option value="HP">Hawaiian or Pacific Islander</option>
+            <option value="P">Prefer not to answer</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Have you attended DivHacks before?</label>
+          <select
+            name="attended"
+            ng-model="user.profile.attended">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Will you be on the Columbia University campus in the fall? If not, what time zone will you be in?</label>
           <input type="text"
-                 placeholder="Designer, Data Scientist, iOS Wizard, Hacker Extraordinaire"
-                 ng-model="user.profile.description">
+                 placeholder="Eastern Daylight Time, PST, UTC, etc."
+                 ng-model="user.profile.timezone">
         </div>
 
         <div class="field">
           <label>
-              What would you like to learn or get out of HackMIT? (optional)
+            We plan on having participants work as teams up to 4 people for this hackathon. Do you already have a team? If YES, please list your teammates! If NO, do you want us to pair you with a team? Please give us an idea about what type of project you would like to work on to help us pair you!
           </label>
           <textarea ng-model="user.profile.essay">
           </textarea>
         </div>
 
-        <div class="field"
-             ng-hide="isMitStudent">
-          <p>
-            Because of limitations imposed by MIT, we are not legally allowed to host
-            non-MIT minors (those under 18) for HackMIT 2015. Checking the box below affirms that you are or will be 18 years or older by September 19th, 2015.
-          </p>
-          <p>
-            <strong>
-            We will be checking ID. If you are a non-MIT minor, you will be turned away at the door.
-            </strong>
-          </p>
-          <div class="ui checkbox">
-            <input type="checkbox" id="adult" ng-model="user.profile.adult">
-            <label for="adult">I am 18 or older.</label>
-          </div>
+        <div class="field">
+          <label>
+            Are there any workshops or technologies that you would want to see at DivHacks?
+          </label>
+          <textarea ng-model="user.profile.workshop">
+          </textarea>
         </div>
-
+        
         <br>
 
         <div class="field" ng-hide="regIsClosed">
