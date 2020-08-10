@@ -32,7 +32,12 @@ function calculateStats(){
     admitted: 0,
     confirmed: 0,
     confirmedMit: 0,
+    attended: 0,
     declined: 0,
+    
+    attendedYes: 0,
+    attendedNo: 0,
+
 
     confirmedFemale: 0,
     confirmedMale: 0,
@@ -110,6 +115,19 @@ function calculateStats(){
         newStats.confirmedMale += user.status.confirmed && user.profile.gender == "M" ? 1 : 0;
         newStats.confirmedOther += user.status.confirmed && user.profile.gender == "O" ? 1 : 0;
         newStats.confirmedNone += user.status.confirmed && user.profile.gender == "N" ? 1 : 0;
+
+        newStats.attendedYes += user.status.confirmed && user.profile.attended == "Y" ? 1 : 0;
+        newStats.attendedNo += user.status.confirmed && user.profile.attended == "N" ? 1 : 0;
+
+        newStats.race += user.status.confirmed && user.profile.race == "W" ? 1 : 0;
+        newStats.race += user.status.confirmed && user.profile.race == "B" ? 1 : 0;
+        newStats.race += user.status.confirmed && user.profile.race == "A" ? 1 : 0;
+        newStats.race += user.status.confirmed && user.profile.race == "NA" ? 1 : 0;
+        newStats.race += user.status.confirmed && user.profile.race == "L" ? 1 : 0;
+        newStats.race += user.status.confirmed && user.profile.race == "M" ? 1 : 0;
+        newStats.race += user.status.confirmed && user.profile.race == "HP" ? 1 : 0;
+        newStats.race += user.status.confirmed && user.profile.race == "P" ? 1 : 0;
+
 
         // Count declined
         newStats.declined += user.status.declined ? 1 : 0;
