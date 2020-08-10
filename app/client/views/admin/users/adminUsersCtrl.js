@@ -288,12 +288,18 @@ angular.module('reg')
                 name: 'Graduation Year',
                 value: user.profile.graduationYear
               },{
-                name: 'Description',
-                value: user.profile.description
+                name: 'Timezone',
+                value: user.profile.timezone
+              },{
+                name: 'Workshop',
+                value: user.profile.workshop
               },{
                 name: 'Essay',
                 value: user.profile.essay
-              }
+              },{
+                name: 'Race/Ethnicity',
+                value: user.profile.race
+              },
             ]
           },{
             name: 'Confirmation',
