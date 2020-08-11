@@ -55,8 +55,88 @@
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
+            <option value="Graduate">Graduate Student</option>
           </select>
         </div>
+
+        <div class="field">
+          <label>Major (intented or declaired)</label>
+        <input type="text" 
+        name="major"
+         ng-model="user.profile.major">
+
+         <div class="field">
+          <label>How did you hear about us?</label>
+        <input type="text" 
+        name="outreach"
+         ng-model="user.profile.outreach">
+         </div>
+         
+
+        <div class="field">
+          <label>Have you attended DivHacks before?</label>
+          <select
+            name="attended"
+            ng-model="user.profile.attended">
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Will you be on the Columbia University campus in the fall?</label>
+          <select
+          name="attended"
+          ng-model="user.profile.onCampus">
+          <option value="Y">Yes</option>
+          <option value="N">No</option>
+        </select>
+        </div>
+          
+
+        </div>
+        
+        <div class="field">
+          <label>What time zone will you be in?</label>
+          <input type="text"
+                 placeholder="Eastern Daylight Time, PST, UTC, etc."
+                 ng-model="user.profile.timezone">
+        </div>
+
+        <div class="divided title">Tell us about yourself!</div>
+
+        <div class="field">
+          <label>
+           Why do you want to come to DivHacks? (200 words max)
+          </label>
+          <textarea ng-model="user.profile.essay">
+          </textarea>
+        </div>
+
+        <div class="field">
+          <label>
+            Participants can work in teams up to 4. This year, we are offering to pair you with a team ahead of the event. If you are interested in this option, please give us an idea about what type of project you would like to work on to help us pair you! If you already have a team, or prefer to find your own, just write N/A
+          </label>
+          <textarea ng-model="user.profile.essay">
+          </textarea>
+        </div>
+
+        <div class="field">
+          <label>
+            Are there any workshops or technologies that you would want to see at DivHacks?
+          </label>
+          <textarea ng-model="user.profile.workshop">
+          </textarea>
+        </div>
+
+        <div>
+          Please follow <a href="https://www.dropbox.com/request/An3QywilCRKpkP59nSNA">the link</a> to submit your resume, which will be passed on to sponsors
+        </div>
+
+        <div class="divided title">Demographic Information</div>
+        <p>We want to make sure that DivHacks is as inclusive as it can be and is serving the people it set out to serve! 
+          This is really helpful information to have for accantability on our side, but if you do not want to answer any of the questions,
+           please select "I prefer not to answer" if you do not want to share this information </p>
 
         <div class="field">
           <label>Gender</label>
@@ -66,12 +146,13 @@
             <option value="">Gender</option>
             <option value="M">Male</option>
             <option value="F">Female</option>
+            <option value="NB">Non-Binary</option>
             <option value="O">Other</option>
             <option value="N">I prefer not to answer.</option>
           </select>
         </div>
 
-        <div class="field">
+        <!-- <div class="field">
           <label>Race/Ethnicity</label>
           <select
             name="race"
@@ -85,41 +166,102 @@
             <option value="HP">Hawaiian or Pacific Islander</option>
             <option value="P">Prefer not to answer</option>
           </select>
-        </div>
+        </div> -->
 
         <div class="field">
-          <label>Have you attended DivHacks before?</label>
-          <select
-            name="attended"
-            ng-model="user.profile.attended">
-            <option value="Y">Yes</option>
-            <option value="N">No</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Will you be on the Columbia University campus in the fall? If not, what time zone will you be in?</label>
-          <input type="text"
-                 placeholder="Eastern Daylight Time, PST, UTC, etc."
-                 ng-model="user.profile.timezone">
-        </div>
-
-        <div class="field">
-          <label>
-            We plan on having participants work as teams up to 4 people for this hackathon. Do you already have a team? If YES, please list your teammates! If NO, do you want us to pair you with a team? Please give us an idea about what type of project you would like to work on to help us pair you!
-          </label>
-          <textarea ng-model="user.profile.essay">
-          </textarea>
-        </div>
-
-        <div class="field">
-          <label>
-            Are there any workshops or technologies that you would want to see at DivHacks?
-          </label>
-          <textarea ng-model="user.profile.workshop">
-          </textarea>
+          <label>Race/Ethnicity (check all that apply)</label>
+          <!-- ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Non-Hispanic White or Euro-American</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Black, Afro-Caribbean, or African-American</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Latinx or Hispanic-American</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+              <label class="ng-binding">East Asian or Asian-American</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Southeast Asian or Southeast Asian-American</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">South Asian or South Asian-American</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Middle Eastern or North African</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Native American or Alaskan Native</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Hawaiian or Pacific Islander</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Other</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races --><div class="field ng-scope" ng-repeat="(key, value) in races">
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="races[key]" class="ng-pristine ng-untouched ng-valid ng-empty">
+              <label class="ng-binding">Prefer not to answer</label>
+            </div>
+          </div><!-- end ngRepeat: (key, value) in races -->
         </div>
         
+        <div class="field">
+          <label>Which best descibes you?</label>
+          <div>
+            <label>
+              <input type="radio" name="firstGen" value="yes" ng-model="user.profile.firstGen" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+              I am the first in my family to attend college
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="firstGen" value="no" ng-model="user.profile.firstGen" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+              I am one of a few in my family to attend college
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="firstGen" value="null" ng-model="user.profile.firstGen" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+              Some people in my family attend college
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="firstGen" value="null" ng-model="user.profile.firstGen" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+              Most people in my family attend college
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="firstGen" value="null" ng-model="user.profile.firstGen" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+              Everyone in my family attends college
+            </label>
+          </div>
+        </div>
+
         <br>
 
         <div class="field" ng-hide="regIsClosed">
